@@ -1,0 +1,48 @@
+body {
+    overflow-x: hidden;
+    height: 110vh;
+}
+
+.form-inline .form-control {
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.row .col-sm-6 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.card-title {
+    text-transform: uppercase;
+}
+
+.bookmarkicon {
+    position: absolute;
+    top: -15px;
+    right: 50px;
+}
+
+#filter-by-difficulty {
+    width: 150px;
+    padding: 5px 5px
+}
+
+#schoolname {
+    font-weight: bold;
+}
+
+.result-text {
+    font-size: 24px;
+}
+
+svg:hover {
+    fill: goldenrod;
+}

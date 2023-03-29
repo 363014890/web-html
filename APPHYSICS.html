@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>review page</title>
+
+<!-- Load style sheets -->
+<link rel="stylesheet" href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
+
+<link rel="stylesheet" href="reviews_style.css">
+
+<!-- Use mobile-aware viewport -->
+<meta name="viewport" content=
+    "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Load any supplemental Javascript libraries here -->
+<script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src=
+    "https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.2/seedrandom.js">
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src = "js_review1.js"></script>
+</head>
+
+<body style="background-color:whitesmoke;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button id="back" style="width: 60px;" onclick = "location.href='explore.html'">BACK</button>
+
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2" id = "col1" style="background-color:white;">
+            <!-- <div id = "a">hello</div> -->
+            <button class = 'btn' id="btn1" style="font-size: 5px;">
+                <!-- Add review -->
+                <div class = "r_text">Add review</div>
+                <img src="add.png" style="width: 20px;height:20px">
+            </button>
+            <button class = 'btn' id="btn2" style="font-size: 5px;" onclick = "location.href='explore.html'">
+                <!-- class list -->
+                <div class = "r_text">class list</div>
+                <img src="list.jpg" style="width: 20px;height:20px">
+            </button>
+            <button class = 'btn' id="btn3" style="font-size: 5px;"  onclick="location.href='index.html'">
+                <!-- search -->
+                <div class = "r_text">search</div>
+                <img src="search.png" style="width: 20px;height:20px">
+            </button>
+        </div>
+
+        <div class="col-sm-8" id = "col2" style="background-color:ivory;">
+            <!-- <div id = "b">world</div> -->
+            <div id = "className">Reviews: AP PHY By Mr.Doctor</div>
+
+            <div class="row" id = "review1"style="height: 160px;">
+                <div class="col-sm-2" style="height: 150px; padding: 20px; border: solid;">
+                    <div class = "t_text">person1</div>
+                </div>
+                <div class="col-sm-6"style="height: 150px;padding: 20px; border: solid;">
+                    <div class = "t_text">He is a very good guy.We love him so much because he gave us A</div>
+                    <div style="padding-top: 45px;font-size: 12px;">Professor name: Mr.Doctor</div>
+                </div>
+                <div class="col-sm-2"style="height: 150px;padding: 20px; border: solid;">
+                    <button id="like1" style = "margin:5px">like</button>
+                    <button id="dislike1" style = "margin:5px">dislike</button>
+                    <div id = "likes1" style = " font-size: 10px;" >likes:0</div>
+                    <div id = "dislikes1" style = "font-size: 10px;" >dislikes:0</div>
+                </div>
+            </div>
+            
+            <div class="row" id = "review2"style="height: 160px;">
+                <div class="col-sm-2" style="height: 150px; padding: 20px; border: solid;">
+                    <div class = "t_text">person1</div>
+                </div>
+                <div class="col-sm-6"style="height: 150px;padding: 20px; border: solid;">
+                    <div class = "t_text">He is a very good guy.We love him so much because he gave us A</div>
+                    <div style="padding-top: 45px;font-size: 12px;">Professor name: Mr.Doctor</div>
+                </div>
+                <div class="col-sm-2"style="height: 150px;padding: 20px; border: solid;">
+                    <button id="like2" style = "margin:5px">like</button>
+                    <button id="dislike2" style = "margin:5px">dislike</button>
+                    <div id = "likes2" style = " font-size: 10px;" >likes:0</div>
+                    <div id = "dislikes2" style = "font-size: 10px;" >dislikes:0</div>
+                </div>
+            </div>
+            
+            <div class="row" id = "review3"style="height: 160px;">
+                <div class="col-sm-2" style="height: 150px; padding: 20px; border: solid;">
+                    <div class = "t_text">person1</div>
+                </div>
+                <div class="col-sm-6"style="height: 150px;padding: 20px; border: solid;">
+                    <div class = "t_text">He is a very good guy.We love him so much because he gave us A</div>
+                    <div style="padding-top: 45px;font-size: 12px;">Professor name: Mr.Doctor</div>
+                </div>
+                <div class="col-sm-2"style="height: 150px;padding: 20px; border: solid;">
+                    <button id="like3" style = "margin:5px">like</button>
+                    <button id="dislike3" style = "margin:5px">dislike</button>
+                    <div id = "likes3" style = " font-size: 10px;" >likes:0</div>
+                    <div id = "dislikes3" style = "font-size: 10px;" >dislikes:0</div>
+                </div>
+            </div>
+
+            <div class="row" id = "review4"style="height: 160px;">
+                <div class="col-sm-2" style="height: 150px; padding: 20px; border: solid;">
+                    <div class = "t_text">person1</div>
+                </div>
+                <div class="col-sm-6"style="height: 150px;padding: 20px; border: solid;">
+                    <div class = "t_text">He is a very good guy.We love him so much because he gave us A</div>
+                    <div style="padding-top: 45px;font-size: 12px;">Professor name: Mr.Doctor</div>
+                </div>
+                <div class="col-sm-2"style="height: 150px;padding: 20px; border: solid;">
+                    <button id="like4" style = "margin:5px">like</button>
+                    <button id="dislike4" style = "margin:5px">dislike</button>
+                    <div id = "likes4" style = " font-size: 10px;" >likes:0</div>
+                    <div id = "dislikes4" style = "font-size: 10px;" >dislikes:0</div>
+                </div>
+            </div>
+
+            <div class="row" id = "review5"style="height: 160px;">
+                <div class="col-sm-2" style="height: 150px; padding: 20px; border: solid;">
+                    <div class = "t_text">person1</div>
+                </div>
+                <div class="col-sm-6"style="height: 150px;padding: 20px; border: solid;">
+                    <div class = "t_text">He is a very good guy.We love him so much because he gave us A</div>
+                    <div style="padding-top: 45px;font-size: 12px;">Professor name: Mr.Doctor</div>
+                </div>
+                <div class="col-sm-2"style="height: 150px;padding: 20px; border: solid;">
+                    <button id="like5" style = "margin:5px">like</button>
+                    <button id="dislike5" style = "margin:5px">dislike</button>
+                    <div id = "likes5" style = " font-size: 10px;" >likes:0</div>
+                    <div id = "dislikes5" style = "font-size: 10px;" >dislikes:0</div>
+                </div>
+            </div>
+
+            <div class="row" id = "review6"style="height: 160px;">
+                <div class="col-sm-2" style="height: 150px; padding: 20px; border: solid;">
+                    <div class = "t_text">person1</div>
+                </div>
+                <div class="col-sm-6"style="height: 150px;padding: 20px; border: solid;">
+                    <div class = "t_text">He is a very good guy.We love him so much because he gave us A</div>
+                    <div style="padding-top: 45px;font-size: 12px;">Professor name: Mr.Doctor</div>
+                </div>
+                <div class="col-sm-2"style="height: 150px;padding: 20px; border: solid;">
+                    <button id="like6" style = "margin:5px">like</button>
+                    <button id="dislike6" style = "margin:5px">dislike</button>
+                    <div id = "likes6" style = " font-size: 10px;" >likes:0</div>
+                    <div id = "dislikes6" style = "font-size: 10px;" >dislikes:0</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-2" id = "col3" style="background-color: white;">
+            <!-- <div id = "c">man</div> -->
+            <div id="overall_text" style="font-size: 20px;font-weight: bold;">Overall Rating</div>
+            <div id="rate_text" style="font-size: 30px;">4.3</div>
+            <div id="piechart" ></div>
+            <div id="teacher_rating" style="font-size: 20px; font-weight: bold;">teacher rating</div>
+            <div id="t_rating" style="border: solid;">
+                <div>Mr.Doctor:3.0</div>
+                <div>Mr.B:1.5</div>
+                <div>Mr.C:1.0</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    document.getElementById("like1").addEventListener("click",function(){
+        document.getElementById("likes1").textContent = "likes:1";
+    });
+    document.getElementById("dislike1").addEventListener("click",function(){
+        document.getElementById("dislikes1").textContent = "dislikes:1";
+    });
+    
+    document.getElementById("like2").addEventListener("click",function(){
+        document.getElementById("likes2").textContent = "likes:1";
+    });
+    document.getElementById("dislike2").addEventListener("click",function(){
+        document.getElementById("dislikes2").textContent = "dislikes:1";
+    });
+
+    document.getElementById("like3").addEventListener("click",function(){
+        document.getElementById("likes3").textContent = "likes:1";
+    });
+    document.getElementById("dislike3").addEventListener("click",function(){
+        document.getElementById("dislikes3").textContent = "dislikes:1";
+    });
+
+    document.getElementById("like4").addEventListener("click",function(){
+        document.getElementById("likes4").textContent = "likes:1";
+    });
+    document.getElementById("dislike4").addEventListener("click",function(){
+        document.getElementById("dislikes4").textContent = "dislikes:1";
+    });
+
+    document.getElementById("like5").addEventListener("click",function(){
+        document.getElementById("likes5").textContent = "likes:1";
+    });
+    document.getElementById("dislike5").addEventListener("click",function(){
+        document.getElementById("dislikes5").textContent = "dislikes:1";
+    });
+
+    document.getElementById("like6").addEventListener("click",function(){
+        document.getElementById("likes6").textContent = "likes:1";
+    });
+    document.getElementById("dislike6").addEventListener("click",function(){
+        document.getElementById("dislikes6").textContent = "dislikes:1";
+    });
+
+    
+    document.getElementById("btn1").addEventListener("click",function() {
+        var clone = document.getElementById("review1").cloneNode(true);
+        document.getElementById("col2").appendChild(clone);
+    });
+
+</script>
+</body>    
+</html>
