@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="explore.css">
+
+</head>
+
+<body style="background-color:whitesmoke;" onload="setVal()">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:khaki;">
+        <a class="btn my-2 my-sm-0" data-toggle="tooltip" data-placement="bottom" title="Explore" onclick="location.reload()"><i
+                class="bi bi-compass-fill"></i></a>
+        <a class="btn my-2 my-sm-0" data-target="#search" data-toggle="collapse"><i class="bi bi-search"></i></a>
+        <form class="collapse form-inline my-2 my-lg-0" id="search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchbar">
+        </form>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <button type="button" class="btn" id="home1" data-toggle="tooltip" data-placement="bottom"
+                    title="Home"><i class="bi bi-house-fill"></i></button>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-file-text mr-2"></i>List
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="listData"></div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Display Results Text -->
+    <p class="result-text mt-5 ml-5">Find your course at <span id="schoolname"></span></p>
+
+    <!-- Filter -->
+    <div class="dropdown d-flex justify-content-center align-items-center" id="filter-dropdown">
+        <button class="btn btn-secondary dropdown-toggle mr-5" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Type of Class
+        </button>
+        <div class="dropdown-menu" id="filter-by-class" aria-labelledby="dropdownMenuButton">
+        </div>
+        <input type="number" id="filter-by-difficulty" placeholder="Filter by difficulty" onchange=""/>
+    </div>
+
+    <!-- Courses Template -->
+    <div class="row p-5" id="main">
+        <div class="col-sm-6" id="template">
+            <div class="card w-75 h-100">
+                <div class="card-body">
+                    <h5 class="card-title">${cardData.title}</h5>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                        class="bi bi-bookmark-fill bookmarkicon" viewBox="0 0 16 16" id="bookmark-${cardData.id}"
+                        onclick="listAdd(this.id)">
+                        <path
+                            d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z" />
+                    </svg>
+                    <p class="card-text">${cardData.about}</p>
+                    <button type="button" class="btn btn-info mb-3" id="${cardData.title}" onclick="reviewRedirect(this.id)">Reviews</button>
+                    <div class="progress position-absolute" style="bottom: 0; left: 0; width: 100%;">
+                        <div class="progress-bar"
+                            style="width: ${cardData.difficulty}%; background-color: ${cardData.color}"
+                            role="progressbar">Course difficulty level: ${cardData.difficulty}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Added confirmation -->
+    <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="200">
+            <div class="toast-header">
+                <strong class="mr-auto">Success!</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Your course has been successfully added!
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="explore.js"></script>
+</body>
+
+<script>
+
+    loadCards()
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    reviewRedirect = (target_id) => {
+        target_id = target_id.split(' ').join('').toUpperCase()
+        window.location.href = `${target_id}.html`
+    }
+
+    document.getElementById("home1").addEventListener("click", function () {
+        window.location.href = "index.html";
+    });
+
+
+</script>
+
+</html>

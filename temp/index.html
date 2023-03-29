@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+
+  <!-- Load style sheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
+  <link rel="stylesheet" href="index.css">
+
+  <!-- Load any supplemental Javascript libraries here -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.2/seedrandom.js">
+  </script>
+  <!--
+-->
+  <script>
+
+    localStorage.setItem("options", ['AP', 'IB', 'Electives'])
+
+    //On Page Load
+    $(document).ready(function () {
+      // document.getElementById("schoolKeyword").value = "";
+      document.getElementById("schoolSelect").value = "";
+    });
+
+
+    // Button Events
+    $(document).on('click', "#btnLogin", function (evt) {
+      console.log("Login Button");
+      $("#loginModal").modal();
+    });
+
+    $(document).on('click', "#btnSignUp", function (evt) {
+      console.log("Sign Up Button");
+      $("#signUpModal").modal();
+    });
+
+    $(document).on('click', "#selectSearch", function (evt) {
+      var value = document.getElementById("schoolSelect").value;
+
+      // For storing search results in local storage to be accesssed by the explore page
+      localStorage.setItem("search_val", value)
+
+      //Change Pages
+      window.location.href = "explore.html";
+    });
+
+
+    $(document).on('click', "#signInModal", function (evt) {
+      window.location.href = "explore.html";
+    });
+
+
+    $(document).on('click', "#signUpModal2", function (evt) {
+      window.location.href = "explore.html";
+    });
+
+    // $(document).on('click', "#keywordSearch", function (evt) {
+    //   var value = document.getElementById("schoolKeyword").value;
+
+    //   // For storing search results in local storage to be accesssed by the explore page
+    //   localStorage.setItem("search_val", value)
+
+    //   //Change Pages
+    //   window.location.href = "explore.html";
+    // });
+
+    // //Keyboard Event
+    // $(document).on('keydown', function (evt) {
+
+
+
+    // });
+
+  </script>
+
+
+</head>
+
+<body style="background-color:whitesmoke;">
+
+
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="background-color:khaki;">
+
+          <form id="loginInfo">
+
+            <div class="form-group">
+              <label>User Name</label>
+              <input class="form-control" id="userName" autocomplete="on">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input class="form-control" id="userPassword" input type="password">
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger"  id="forgotPassword">Forgot Password?</button>
+          <button type="button" class="btn btn-success" id="signInModal">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="background-color:khaki;">
+
+          <form id="loginInfo">
+
+            <div class="form-group">
+              <label>User Name</label>
+              <input class="form-control" id="newUserName" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input class="form-control" id="newPassword" input type="password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Repeat Password</label>
+              <input class="form-control" id="newPassword2" input type="password">
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" id="signUpModal2">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="background-color: khaki; height: 150px; display: flex; flex-direction: column;">
+    <div class="row" style="display: flex; justify-content: flex-end; width: 100vw; padding-top: 20px;">
+      <button type="button" class="btn btn-info mr-5" id="btnLogin">Login</button>
+      <button type="button" class="btn btn-info mr-5" id="btnSignUp">Sign Up</button>
+    </div>
+    <h1 class="text-dark" style="font-weight: bold; text-align: center; padding-top: 35px;">Rate My Teacher</h1>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center" id="mainColumn">
+    <form id="loginInfo" style="background-color: khaki; padding: 75px;">
+
+      <!-- <label style="font-weight: bold;" class="label" id="keywordLabel">Search For Keyword</label>
+      <input class="form-control" id="schoolKeyword" input type="text" autocomplete="off">
+      <button type="button" class="btn btn-search" id="keywordSearch">GO!</button> -->
+
+      <label style="font-weight: bold;">Search For School</label>
+      <select class="form-control" id="schoolSelect">
+        <option>School 1</option>
+        <option>School 2</option>
+        <option>School 3</option>
+        <option>School 4</option>
+      </select>
+
+      <button type="button" class="btn btn-search" id="selectSearch">GO!</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
